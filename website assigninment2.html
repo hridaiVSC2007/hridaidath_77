@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CampusLearn - Computer Science Fundamentals</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+html,body{
+    margin:0;
+    background:#eef5fb;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#143b63;
+    font-size:8px;
+}
+
+body{
+    padding:0;
+}
+
+.site{
+    width:424px;
+    margin:0 auto;
+    background:#fff;
+    box-shadow:0 0 4px #aaa;
+    min-height:632px;
+}
+
+/* ================= HEADER ================= */
+
+.topbar{
+    height:29px;
+    background:#07509a;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 8px;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    color:#fff;
+}
+
+.brand .cap{
+    font-size:12px;
+    line-height:1;
+}
+
+.brand b{
+    display:block;
+    font-size:8px;
+    line-height:9px;
+}
+
+.brand small{
+    font-size:4.7px;
+    opacity:.9;
+}
+
+.topbar nav{
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+.topbar nav a{
+    color:#fff;
+    font-size:5px;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.topbar nav a:hover{
+    color:#8ed1ff;
+}
+
+.search{
+    font-size:11px!important;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.layout{
+    display:grid;
+    grid-template-columns:75px 247px 102px;
+    min-height:555px;
+}
+
+/* ================= LEFT SIDEBAR ================= */
+
+.leftbar{
+    border-right:1px solid #d8e6f3;
+    background:#f5faff;
+}
+
+.side-nav{
+    padding:6px 5px;
+}
+
+.side-nav a{
+    height:18px;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    color:#174d82;
+    text-decoration:none;
+    font-size:6px;
+    border-radius:2px;
+    padding:0 4px;
+    transition:.2s;
+}
+
+.side-nav a:hover{
+    background:#dbeeff;
+}
+
+.side-nav a.active{
+    background:#dbeeff;
+    font-weight:bold;
+}
+
+.dream{
+    height:150px;
+    margin-top:2px;
+    background:linear-gradient(#fff,#eaf6ff);
+    text-align:center;
+    padding-top:29px;
+    color:#0b5da9;
+    font-size:7px;
+    line-height:11px;
+    border-top:1px solid #dfeaf4;
+}
+
+/* ================= CENTER ================= */
+
+.main{
+    padding:5px 6px 6px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    height:96px;
+    position:relative;
+    overflow:hidden;
+    border-radius:2px;
+}
+
+.hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.04) 65%,
+            transparent
+        );
+}
+
+.hero-copy{
+    position:absolute;
+    z-index:2;
+    top:16px;
+    left:13px;
+    color:#fff;
+}
+
+.hero h1{
+    margin:0;
+    font-size:15px;
+    line-height:15px;
+}
+
+.hero p{
+    font-size:6px;
+    margin:5px 0;
+}
+
+.hero button,
+.next button,
+.contact button{
+    border:0;
+    background:#0780d9;
+    color:white;
+    border-radius:2px;
+    font-size:5px;
+    padding:6px 9px;
+    cursor:pointer;
+}
+
+.hero button:hover,
+.next button:hover,
+.contact button:hover{
+    background:#056bb5;
+}
+
+/* ================= SECTIONS ================= */
+
+section[id]{
+    scroll-margin-top:35px;
+}
+
+/* ================= WELCOME ================= */
+
+.welcome h2{
+    font-size:9px;
+    color:#0759a2;
+    margin:7px 0 4px;
+}
+
+.welcome p{
+    font-size:5.7px;
+    line-height:9px;
+    margin:0;
+    color:#45627d;
+}
+
+/* ================= FOUR PILLARS ================= */
+
+.pillars{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    margin:8px 0 7px;
+    text-align:center;
+}
+
+.pillars>div{
+    border-right:1px solid #d9e6ef;
+    min-height:56px;
+}
+
+.pillars>div:last-child{
+    border:0;
+}
+
+.pillars i{
+    display:flex;
+    width:27px;
+    height:27px;
+    border-radius:50%;
+    background:#d9efff;
+    color:#0570c6;
+    margin:0 auto 2px;
+    align-items:center;
+    justify-content:center;
+    font-style:normal;
+    font-size:15px;
+}
+
+.pillars b{
+    display:block;
+    font-size:6px;
+}
+
+.pillars span{
+    display:block;
+    color:#55708a;
+    font-size:4.5px;
+    line-height:6px;
+    margin-top:2px;
+}
+
+/* ================= HEADINGS ================= */
+
+.modules h3,
+.gallery h3,
+.lists h3,
+.extra h3{
+    font-size:7px;
+    color:#084f92;
+    margin:4px 0;
+}
+
+/* ================= COURSE TABLE ================= */
+
+.modules table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:5px;
+}
+
+.modules th{
+    background:#07559c;
+    color:#fff;
+    padding:4px 2px;
+    text-align:left;
+}
+
+.modules td{
+    border:1px solid #dbe5ee;
+    padding:4px 2px;
+    color:#345b7e;
+}
+
+.modules th:first-child,
+.modules td:first-child{
+    text-align:center;
+    width:27px;
+}
+
+.modules th:nth-child(3),
+.modules td:nth-child(3){
+    width:48px;
+}
+
+.modules th:last-child,
+.modules td:last-child{
+    width:54px;
+}
+
+.done,
+.progress,
+.not{
+    padding:2px 4px;
+    border-radius:3px;
+    font-size:4.5px;
+}
+
+.done{
+    background:#bfeccf;
+    color:#166d36;
+}
+
+.progress{
+    background:#ffe7a7;
+    color:#9a6a00;
+}
+
+.not{
+    background:#e8edf1;
+    color:#687987;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+    margin-top:7px;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:4px;
+}
+
+.gallery figure{
+    margin:0;
+}
+
+.gallery img{
+    width:100%;
+    height:51px;
+    object-fit:cover;
+    display:block;
+}
+
+.gallery figcaption{
+    font-size:4.5px;
+    color:#45627d;
+    text-align:center;
+    margin-top:2px;
+}
+
+/* ================= LISTS ================= */
+
+.lists{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:8px;
+}
+
+.lists ul{
+    padding-left:11px;
+    margin:0;
+}
+
+.lists li{
+    font-size:4.8px;
+    color:#41617c;
+    line-height:8px;
+}
+
+.lists a{
+    color:#1267a5;
+    text-decoration:none;
+}
+
+.lists a:hover{
+    text-decoration:underline;
+}
+
+/* ================= EXTRA CONTENT ================= */
+
+.extra{
+    margin-top:9px;
+    padding-top:5px;
+    border-top:1px solid #e0ebf3;
+}
+
+.extra p,
+.extra li{
+    font-size:5px;
+    color:#4b6780;
+    line-height:8px;
+}
+
+.extra ul{
+    padding-left:12px;
+}
+
+/* ================= NEXT SECTION ================= */
+
+.next{
+    margin-top:8px;
+    height:38px;
+    background:#eaf6ff;
+    border:1px solid #cce8fb;
+    border-radius:2px;
+    display:flex;
+    align-items:center;
+    padding:5px;
+    gap:6px;
+}
+
+.next .book{
+    font-size:15px;
+    color:#0871bf;
+}
+
+.next b{
+    display:block;
+    font-size:6px;
+    color:#1263a3;
+}
+
+.next small{
+    display:block;
+    font-size:4.3px;
+    color:#50708d;
+    margin-top:2px;
+}
+
+.next button{
+    margin-left:auto;
+    padding:5px 8px;
+}
+
+/* ================= RIGHT SIDEBAR ================= */
+
+.rightbar{
+    border-left:1px solid #d8e6f3;
+    background:#f7fbff;
+    padding:5px;
+}
+
+.campus{
+    width:100%;
+    height:58px;
+    object-fit:cover;
+    display:block;
+}
+
+.card{
+    border:1px solid #d8e5ef;
+    background:#fff;
+    margin-top:6px;
+    padding:5px;
+}
+
+.card h3{
+    font-size:6.2px;
+    color:#07559b;
+    margin:0 0 4px;
+}
+
+/* QUICK LINKS */
+
+.quick a{
+    display:block;
+    font-size:5px;
+    color:#1764a0;
+    margin:4px 0;
+    text-decoration:none;
+}
+
+.quick a:hover{
+    color:#003d72;
+    text-decoration:underline;
+}
+
+/* EVENTS */
+
+.events b{
+    display:block;
+    font-size:5px;
+    color:#28618d;
+    margin-top:5px;
+}
+
+.events small{
+    display:block;
+    font-size:4.5px;
+    color:#73879a;
+}
+
+/* CONTACT */
+
+.contact label{
+    display:block;
+    font-size:4.6px;
+    color:#4d6980;
+    margin:4px 0 2px;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    border:1px solid #dce6ee;
+    border-radius:2px;
+    padding:4px;
+    font-size:4.6px;
+    color:#456;
+    outline:none;
+}
+
+.contact textarea{
+    height:38px;
+    resize:none;
+}
+
+.contact button{
+    width:100%;
+    margin-top:6px;
+    padding:5px;
+    font-size:5px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    height:48px;
+    background:#06457f;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 9px;
+}
+
+footer nav{
+    display:flex;
+    gap:8px;
+}
+
+footer nav a{
+    font-size:4.6px;
+    color:#fff;
+    text-decoration:none;
+}
+
+footer nav a:hover{
+    color:#8ed1ff;
+}
+
+footer>span{
+    text-align:right;
+    font-size:6px;
+    line-height:10px;
+}
+
+footer small{
+    font-size:4px;
+    opacity:.8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    .site{
+        width:100%;
+        max-width:424px;
+    }
+
+}
+/* =========================================
+   RAINBOW GLOW HOVER EFFECT
+========================================= */
+
+/* All clickable links */
+a {
+    transition: 
+        color 0.3s ease,
+        text-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Rainbow glow when cursor is placed over a link */
+a:hover {
+    color: #ffffff !important;
+
+    text-shadow:
+        0 0 5px #ff0000,
+        0 0 10px #ff7f00,
+        0 0 15px #ffff00,
+        0 0 20px #00ff00,
+        0 0 25px #00ffff,
+        0 0 30px #0080ff,
+        0 0 35px #8b00ff;
+
+    transform: translateY(-1px);
+}
+/* =========================================
+   LEARNING SECTIONS
+========================================= */
+
+.learning-section {
+    margin: 35px 0;
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #d5e5f2;
+
+    border-radius: 7px;
+
+    scroll-margin-top: 85px;
+}
+
+
+/* Section heading */
+
+.learning-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding-bottom: 15px;
+
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid #dce9f4;
+}
+
+.learning-heading > i {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e2f2ff;
+
+    color: #0865b5;
+
+    font-size: 21px;
+}
+
+.learning-heading h2 {
+    color: #07529b;
+
+    font-size: 21px;
+
+    margin: 0;
+}
+
+.learning-heading p {
+    color: #64809b;
+
+    font-size: 11px;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================
+   SYLLABUS
+========================================= */
+
+.syllabus-item {
+    display: flex;
+
+    gap: 16px;
+
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    border-left: 4px solid #147bd1;
+
+    background: #f5faff;
+
+    border-radius: 4px;
+
+    transition: 0.3s;
+}
+
+.syllabus-item:hover {
+    transform: translateX(5px);
+
+    background: #edf7ff;
+
+    box-shadow: 0 4px 12px rgba(0, 80, 150, 0.10);
+}
+
+.module-number {
+    min-width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #0868bb;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.syllabus-item h3 {
+    color: #07529b;
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+.syllabus-item p {
+    color: #526b83;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   STUDY MATERIALS
+========================================= */
+
+.materials-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.material-card {
+    padding: 18px;
+
+    background: #f6fbff;
+
+    border: 1px solid #d8e8f5;
+
+    border-radius: 6px;
+
+    transition: 0.3s;
+}
+
+.material-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 7px 18px rgba(0, 80, 150, 0.13);
+
+    border-color: #83bde9;
+}
+
+.material-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e1f2ff;
+
+    color: #0765b5;
+
+    border-radius: 7px;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+
+.material-card h3 {
+    color: #07529b;
+
+    font-size: 14px;
+
+    margin-bottom: 6px;
+}
+
+.material-card p {
+    color: #536d85;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    margin-bottom: 10px;
+}
+
+.material-card a {
+    color: #086bc1;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   ASSIGNMENTS
+========================================= */
+
+.assignment-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.assignment-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px;
+
+    border: 1px solid #d8e7f3;
+
+    background: #fafdff;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+.assignment-card:hover {
+    box-shadow:
+        0 5px 15px rgba(0, 80, 150, 0.12);
+
+    transform: translateY(-2px);
+}
+
+.assignment-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e4f3ff;
+
+    color: #0867b7;
+
+    border-radius: 50%;
+
+    font-size: 15px;
+}
+
+.assignment-details {
+    flex: 1;
+}
+
+.assignment-details h3 {
+    color: #07529b;
+
+    font-size: 13px;
+
+    margin-bottom: 4px;
+}
+
+.assignment-details p {
+    color: #536b82;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    margin-bottom: 5px;
+}
+
+.deadline {
+    color: #66839f;
+
+    font-size: 9px;
+}
+
+.deadline i {
+    margin-right: 4px;
+}
+
+
+/* Assignment status */
+
+.assignment-status {
+    padding: 5px 10px;
+
+    border-radius: 4px;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+}
+
+.assignment-status.completed {
+    background: #d9f4e9;
+    color: #16805a;
+}
+
+.assignment-status.in-progress {
+    background: #fff0c8;
+    color: #996c00;
+}
+
+.assignment-status.pending {
+    background: #e5e9ed;
+    color: #586979;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .learning-section {
+        padding: 15px;
+    }
+
+    .materials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .assignment-card {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+    .assignment-status {
+        margin-left: 56px;
+    }
+
+    .syllabus-item {
+        padding: 12px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="site" id="home">
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="cap">◆</div>
+
+        <div>
+            <b>CampusLearn</b>
+            <small>Learn • Build • Grow</small>
+        </div>
+
+    </div>
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#courses">Courses</a>
+
+        <a href="#resources">Resources</a>
+
+        <a href="#contact">Contact</a>
+
+        <a href="#faq" class="search">⌕</a>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN LAYOUT
+===================================================== -->
+
+<div class="layout">
+
+
+<!-- =====================================================
+     LEFT SIDEBAR
+===================================================== -->
+
+<aside class="leftbar">
+
+    <div class="side-nav">
+
+        <a href="#home" class="active">
+            ⌂
+            <span>Home</span>
+        </a>
+
+        <a href="#overview">
+            ▣
+            <span>Course Overview</span>
+        </a>
+
+        <a href="#syllabus">
+            ▤
+            <span>Syllabus</span>
+        </a>
+
+        <a href="#materials">
+            ▧
+            <span>Study Materials</span>
+        </a>
+
+        <a href="#assignments">
+            ✓
+            <span>Assignments</span>
+        </a>
+
+        <a href="#resources">
+            🔗
+            <span>Useful Links</span>
+        </a>
+
+        <a href="#faq">
+            ❔
+            <span>FAQ</span>
+        </a>
+
+    </div>
+
+
+    <div class="dream">
+
+        🎓
+
+        <br>
+
+        <b>
+            Small steps,
+            <br>
+            big dreams
+        </b>
+
+        <br>
+
+        <span>today!</span>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     CENTER CONTENT
+===================================================== -->
+
+<main class="main">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <img
+        src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80"
+        alt="Computer science study desk"
+    >
+
+    <div class="hero-copy">
+
+        <h1>
+            Computer Science
+            <br>
+            Fundamentals
+        </h1>
+
+        <p>
+            Learn the basics. Build the future.
+        </p>
+
+        <button onclick="location.href='#courses'">
+            Explore the Course →
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section class="welcome" id="about">
+
+    <h2>
+        Welcome to Computer Science Fundamentals
+    </h2>
+
+    <p>
+        This course introduces the basic concepts of computer science, including
+        <br>
+        problem solving, programming, and web technologies. It is designed for
+        <br>
+        first-year students who are new to the subject.
+    </p>
+
+</section>
+
+
+
+<!-- OVERVIEW -->
+
+<section class="pillars" id="overview">
+
+    <div>
+
+        <i>◉</i>
+
+        <b>Learn</b>
+
+        <span>
+            Understand core
+            <br>
+            concepts and theory
+        </span>
+
+    </div>
+
+
+    <div>
+
+        <i>▣</i>
+
+        <b>Practice</b>
+
+        <span>
+            Solve problems and
+            <br>
+            apply knowledge
+        </span>
+
+    </div>
+
+
+    <div>
+
+        <i>●</i>
+
+        <b>Build</b>
+
+        <span>
+            Turn ideas into
+            <br>
+            real applications
+        </span>
+
+    </div>
+
+
+    <div>
+
+        <i>♟</i>
+
+        <b>Grow</b>
+
+        <span>
+            Gain confidence and
+            <br>
+            prepare for careers
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- COURSES -->
+
+<section class="modules" id="courses">
+
+    <h3>
+        ▦ &nbsp;Course Modules
+    </h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Module</th>
+                <th>Topic</th>
+                <th>Week</th>
+                <th>Status</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+                <td>1</td>
+                <td>Introduction to Computers</td>
+                <td>Week 1</td>
+                <td>
+                    <span class="done">Completed</span>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>2</td>
+                <td>Programming Basics</td>
+                <td>Week 2 - 3</td>
+                <td>
+                    <span class="progress">In Progress</span>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>3</td>
+                <td>Web Technologies (HTML &amp; CSS)</td>
+                <td>Week 4 - 5</td>
+                <td>
+                    <span class="not">Not Started</span>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>4</td>
+                <td>Problem Solving &amp; Logic</td>
+                <td>Week 6</td>
+                <td>
+                    <span class="not">Not Started</span>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+
+
+<!-- SYLLABUS -->
+
+<section class="extra" id="syllabus">
+
+    <h3>
+        📚 &nbsp;Syllabus
+    </h3>
+
+    <ul>
+
+        <li>
+            Introduction to Computer Science
+        </li>
+
+        <li>
+            Computer Hardware and Software
+        </li>
+
+        <li>
+            Programming Fundamentals
+        </li>
+
+        <li>
+            HTML and CSS
+        </li>
+
+        <li>
+            Algorithms and Problem Solving
+        </li>
+
+        <li>
+            Introduction to Web Development
+        </li>
+
+    </ul>
+
+</section>
+
+
+
+<!-- STUDY MATERIALS -->
+
+<section class="extra" id="materials">
+
+    <h3>
+        📖 &nbsp;Study Materials
+    </h3>
+
+    <p>
+        Use these resources to strengthen your understanding of the course topics.
+    </p>
+
+    <ul>
+
+        <li>
+            HTML and CSS learning material
+        </li>
+
+        <li>
+            Programming practice exercises
+        </li>
+
+        <li>
+            Computer science notes
+        </li>
+
+        <li>
+            Web development references
+        </li>
+
+    </ul>
+
+</section>
+
+
+
+<!-- ASSIGNMENTS -->
+
+<section class="extra" id="assignments">
+
+    <h3>
+        ✓ &nbsp;Assignments
+    </h3>
+
+    <ul>
+
+        <li>
+            Assignment 1 — Introduction to Computers
+        </li>
+
+        <li>
+            Assignment 2 — Programming Basics
+        </li>
+
+        <li>
+            Assignment 3 — Create an HTML Page
+        </li>
+
+        <li>
+            Assignment 4 — CSS Styling Project
+        </li>
+
+    </ul>
+
+</section>
+
+
+
+<!-- GALLERY -->
+
+<section class="gallery">
+
+    <h3>
+        ▧ &nbsp;Gallery
+    </h3>
+
+    <div class="gallery-grid">
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&q=80"
+                alt="Learning to code"
+            >
+
+            <figcaption>
+                Learning to Code
+            </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=500&q=80"
+                alt="Study materials"
+            >
+
+            <figcaption>
+                Study Materials
+            </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=500&q=80"
+                alt="Group learning"
+            >
+
+            <figcaption>
+                Group Learning
+            </figcaption>
+
+        </figure>
+
+    </div>
+
+</section>
+
+
+
+<!-- RESOURCES -->
+
+<section class="lists" id="resources">
+
+    <div>
+
+        <h3>
+            ☷ &nbsp;Key Topics
+        </h3>
+
+        <ul>
+
+            <li>
+                <a href="#overview">
+                    What is a Computer?
+                </a>
+            </li>
+
+            <li>
+                <a href="#syllabus">
+                    Operating Systems
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.python.org/" target="_blank">
+                    Programming Languages
+                </a>
+            </li>
+
+            <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Learn" target="_blank">
+                    Web Development
+                </a>
+            </li>
+
+            <li>
+                <a href="#assignments">
+                    Problem Solving
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            ☷ &nbsp;Useful Links
+        </h3>
+
+        <ul>
+
+            <li>
+                <a
+                    href="https://www.w3schools.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    W3Schools
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://developer.mozilla.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    MDN Web Docs
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://www.coursera.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Coursera
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://www.freecodecamp.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    freeCodeCamp
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+
+<!-- FAQ -->
+
+<section class="extra" id="faq">
+
+    <h3>
+        ❔ &nbsp;Frequently Asked Questions
+    </h3>
+
+    <p>
+        <b>What is this course?</b><br>
+        It is an introductory computer science course covering programming,
+        computers, web development and problem solving.
+    </p>
+
+    <p>
+        <b>Who can take this course?</b><br>
+        It is designed for beginners and first-year students.
+    </p>
+
+    <p>
+        <b>Do I need programming experience?</b><br>
+        No. The course starts with basic concepts.
+    </p>
+
+</section>
+
+
+
+<!-- NEXT STEP -->
+
+<section class="next">
+
+    <div class="book">
+        ▣
+    </div>
+
+    <div>
+
+        <b>
+            Ready to take the next step?
+        </b>
+
+        <small>
+            Explore the course materials and start your learning journey today!
+        </small>
+
+    </div>
+
+    <button onclick="location.href='#courses'">
+        Go to Course →
+    </button>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     RIGHT SIDEBAR
+===================================================== -->
+
+<aside class="rightbar">
+
+
+<img
+    class="campus"
+    src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=500&q=80"
+    alt="Campus"
+>
+
+
+<!-- QUICK LINKS -->
+
+<section class="card quick">
+
+    <h3>
+        🔗 Quick Links
+    </h3>
+
+    <a href="#syllabus">
+        Course Syllabus
+    </a>
+
+    <a
+        href="https://developer.mozilla.org/en-US/docs/Web"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Download Notes (PDF)
+    </a>
+
+    <a
+        href="https://www.w3schools.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Programming Resources
+    </a>
+
+    <a
+        href="https://github.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Student Forum / Projects
+    </a>
+
+    <a
+        href="https://developer.mozilla.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        External References
+    </a>
+
+</section>
+
+
+
+<!-- EVENTS -->
+
+<section class="card events">
+
+    <h3>
+        ▣ Upcoming Events
+    </h3>
+
+    <b>
+        Assignment 1 Due
+    </b>
+
+    <small>
+        August 15, 2025
+    </small>
+
+
+    <b>
+        Midterm Exam
+    </b>
+
+    <small>
+        August 25, 2025
+    </small>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section class="card contact" id="contact">
+
+    <h3>
+        ✉ Contact Us
+    </h3>
+
+
+    <form onsubmit="sendMessage(event)">
+
+        <label>
+            Name*
+        </label>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required
+        >
+
+
+        <label>
+            Email*
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+        >
+
+
+        <label>
+            Message*
+        </label>
+
+        <textarea
+            id="message"
+            placeholder="Your message..."
+            required
+        ></textarea>
+
+
+        <button type="submit">
+            Send Message
+        </button>
+
+    </form>
+
+</section>
+
+
+</aside>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="brand">
+
+        <div class="cap">
+            ◆
+        </div>
+
+        <div>
+
+            <b>
+                CampusLearn
+            </b>
+
+            <small>
+                Learn • Build • Grow
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#courses">Courses</a>
+
+        <a href="#resources">Resources</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <span>
+
+        ◉ &nbsp;◉ &nbsp;▣ &nbsp;◉
+
+        <br>
+
+        <small>
+            © 2025 CampusLearn. All rights reserved.
+        </small>
+
+    </span>
+
+</footer>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value;
+
+    alert(
+        "Thanks, " + name +
+        "! Your message has been received."
+    );
+
+    event.target.reset();
+}
+
+
+/* Highlight sidebar link when clicked */
+
+const sideLinks =
+    document.querySelectorAll(".side-nav a");
+
+sideLinks.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        sideLinks.forEach(function(item){
+            item.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+</script>
+<a href="#syllabus">
+    <i class="fas fa-file-alt"></i>
+    Syllabus
+</a>
+
+<a href="#study-materials">
+    <i class="fas fa-folder-open"></i>
+    Study Materials
+</a>
+
+<a href="#assignments">
+    <i class="fas fa-clipboard-check"></i>
+    Assignments
+</a>
+
+</body>
+</html>
